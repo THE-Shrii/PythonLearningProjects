@@ -54,6 +54,12 @@
 # else:
 #     print("All numbers are equal or two numbers are same")
 #
+
+
+# sor/t
+# print("Biggest number is:", max(input1, input2, input3))
+
+
 #  FOR EQUAL NUMBERS
 
 
@@ -99,3 +105,108 @@
 
 
 
+# ✅ 5. Count Vowels
+# 🎯 What it does:
+#
+# Counts vowels in a word
+
+# s = input("Enter a string:")
+# count = 0
+#
+# for ch in s:
+#     if ch.lower() in "aeiou":
+#         count += 1
+#
+# # check AFTER loop
+# if count == 0:
+#     print("No Vowels found")
+# else:
+#     print("Vowels:", count)
+
+
+
+
+
+
+# ✅ 6. Remove Duplicates (List)
+# 🎯 What it does:
+#
+# Remove duplicate numbers
+
+# l1 = [1,2,2,2,2,4]
+# uniquel1 = list(set(l1))
+# print(uniquel1)
+
+
+
+
+
+# ✅ 7. Simple Password Checker
+# 🎯 What it does:
+#
+# Checks if password is strong
+
+# password = input("Enter Your Password:")
+#
+# if len(password) < 8:
+#     print("Too short")
+# elif not any(ch.isdigit() for ch in password):
+#     print("Add a number")
+# elif not any(ch.isupper() for ch in password):
+#     print("Add uppercase letter")
+# elif not any(ch in "#$&@!*" for ch in password):
+#     print("Add special character")
+# else:
+#     print("Strong password ")
+
+
+
+
+
+# ✅ 8. Sum of List
+# 🎯 What it does:
+#
+# Find total of numbers
+
+# l1 = [1,2,3]
+# l2 = [1,2,3]
+#
+# print (sum(l1 +l2))
+
+
+
+# ✅ 9. Check Palindrome
+# 🎯 What it does:
+#
+# Check same forward/backward
+#
+# s = input("Enter word: ")
+#
+# if s == s[::-1]:
+#     print("Palindrome")
+# else:
+#     print("Not Palindrome")
+#
+# # Explanation:
+# # Compare string with reverse
+
+
+
+
+# 🎯 What it does:
+#
+# Grade system
+#
+# marks = int(input("Enter marks: "))
+#
+# if marks >= 90:
+#     print("A")
+# elif marks >= 75:
+#     print("B")
+# elif marks >= 50:
+#     print("C")
+# else:
+#     print("Fail")
+#
+# # Explanation:
+# # Multiple conditions using elif
