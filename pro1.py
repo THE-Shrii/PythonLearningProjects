@@ -705,3 +705,180 @@ for i in range(len(lst)):
 
 print(lst)
 # Output: [0,0,0,1,1,1]
+
+
+# Q38. Detect cycle in list (visited logic)
+lst = [1,2,3,1]
+seen = set()
+cycle = False
+
+for i in lst:
+    if i in seen:
+        cycle = True
+        break
+    seen.add(i)
+
+print(cycle)
+# Output: True
+
+
+# Q39. Longest common prefix
+strs = ["flower","flow","flight"]
+prefix = strs[0]
+
+for s in strs[1:]:
+    while not s.startswith(prefix):
+        prefix = prefix[:-1]
+
+print(prefix)
+# Output: fl
+
+
+# Q40. Subarray with given sum
+lst = [1,2,3,7,5]
+target = 12
+curr = 0
+start = 0
+
+for i in range(len(lst)):
+    curr += lst[i]
+    while curr > target:
+        curr -= lst[start]
+        start += 1
+    if curr == target:
+        print(start, i)
+# Output: 1 3
+
+
+# Q41. Count distinct elements
+lst = [1,2,2,3,4]
+print(len(set(lst)))
+# Output: 4
+
+
+# Q42. Rearrange positives and negatives
+lst = [-1,2,-3,4]
+pos, neg = [], []
+
+for i in lst:
+    (pos if i>0 else neg).append(i)
+
+print(pos + neg)
+# Output: [2,4,-1,-3]
+
+
+# Q43. Find missing + repeating
+lst = [1,2,2,4]
+seen = set()
+rep = miss = None
+
+for i in lst:
+    if i in seen:
+        rep = i
+    seen.add(i)
+
+for i in range(1,len(lst)+1):
+    if i not in seen:
+        miss = i
+
+print(rep, miss)
+# Output: 2 3
+
+
+# Q44. Next greater element
+lst = [4,5,2,25]
+
+for i in range(len(lst)):
+    for j in range(i+1,len(lst)):
+        if lst[j] > lst[i]:
+            print(lst[i], "->", lst[j])
+            break
+    else:
+        print(lst[i], "-> -1")
+# Output:
+# 4->5, 5->25, 2->25, 25->-1
+
+
+# Q45. Rotate array k times
+lst = [1,2,3,4,5]
+k = 2
+
+for _ in range(k):
+    lst.insert(0, lst.pop())
+
+print(lst)
+# Output: [4,5,1,2,3]
+
+
+# Q46. Count pairs with difference k
+lst = [1,5,3,4,2]
+k = 2
+count = 0
+
+for i in range(len(lst)):
+    for j in range(i+1,len(lst)):
+        if abs(lst[i]-lst[j]) == k:
+            count += 1
+
+print(count)
+# Output: 3
+
+
+# Q47. First repeating element
+lst = [10,5,3,4,3,5,6]
+seen = set()
+
+for i in lst:
+    if i in seen:
+        print(i)
+        break
+    seen.add(i)
+# Output: 3
+
+
+# Q48. Check balanced parentheses
+s = "()()"
+count = 0
+
+for ch in s:
+    if ch == "(":
+        count += 1
+    else:
+        count -= 1
+    if count < 0:
+        print(False)
+        break
+else:
+    print(count == 0)
+# Output: True
+
+
+# Q49. Count triplets with sum
+lst = [1,2,3,4,5]
+target = 9
+count = 0
+
+for i in range(len(lst)):
+    for j in range(i+1,len(lst)):
+        for k in range(j+1,len(lst)):
+            if lst[i]+lst[j]+lst[k]==target:
+                count += 1
+
+print(count)
+# Output: 2
+
+
+# Q50. Final: longest consecutive sequence
+lst = [100,4,200,1,3,2]
+s = set(lst)
+max_len = 0
+
+for i in s:
+    if i-1 not in s:
+        length = 1
+        while i+length in s:
+            length += 1
+        max_len = max(max_len, length)
+
+print(max_len)
+# Output: 4  (sequence: 1,2,3,4)
