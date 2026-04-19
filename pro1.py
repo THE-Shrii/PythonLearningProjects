@@ -210,3 +210,147 @@
 #
 # # Explanation:
 # # Multiple conditions using elif
+
+
+
+
+
+
+# food = "Pasta"
+# food.replace("a","e")
+# print(food)
+
+
+
+# PROBLEMS BASED ON LOOPS
+
+
+
+# Q1. Find second largest number in list
+lst = [10, 20, 5, 8]
+first = second = float('-inf')
+
+for num in lst:
+    if num > first:
+        second = first
+        first = num
+    elif num > second and num != first:
+        second = num
+
+print(second)
+# Explanation:
+# track largest and second largest
+# Output: 10
+
+
+# Q2. Check if list is sorted
+lst = [1,2,3,4]
+is_sorted = True
+
+for i in range(len(lst)-1):
+    if lst[i] > lst[i+1]:
+        is_sorted = False
+        break
+
+print(is_sorted)
+# Output: True
+
+
+# Q3. Move zeros to end
+lst = [0,1,0,3,12]
+res = []
+
+for i in lst:
+    if i != 0:
+        res.append(i)
+
+zeros = len(lst) - len(res)
+res.extend([0]*zeros)
+
+print(res)
+# Output: [1,3,12,0,0]
+
+
+# Q4. Find duplicate elements
+lst = [1,2,3,2,4,1]
+seen = set()
+dup = set()
+
+for i in lst:
+    if i in seen:
+        dup.add(i)
+    else:
+        seen.add(i)
+
+print(dup)
+# Output: {1,2}
+
+
+# Q5. Rotate list right by 1
+lst = [1,2,3,4]
+last = lst[-1]
+
+for i in range(len(lst)-1,0,-1):
+    lst[i] = lst[i-1]
+
+lst[0] = last
+print(lst)
+# Output: [4,1,2,3]
+
+
+# Q6. Count frequency manually
+lst = [1,2,2,3]
+freq = {}
+
+for i in lst:
+    if i in freq:
+        freq[i] += 1
+    else:
+        freq[i] = 1
+
+print(freq)
+# Output: {1:1,2:2,3:1}
+
+
+# Q7. Find missing number (1–n)
+lst = [1,2,4,5]
+n = 5
+total = n*(n+1)//2
+print(total - sum(lst))
+# Output: 3
+
+
+# Q8. Reverse words in sentence
+s = "hello world"
+words = s.split()
+res = ""
+
+for w in words[::-1]:
+    res += w + " "
+
+print(res.strip())
+# Output: world hello
+
+
+# Q9. Check anagram
+s1 = "listen"
+s2 = "silent"
+
+print(sorted(s1) == sorted(s2))
+# Output: True
+
+
+# Q10. First non-repeating character
+s = "aabbc"
+freq = {}
+
+for ch in s:
+    freq[ch] = freq.get(ch,0)+1
+
+for ch in s:
+    if freq[ch] == 1:
+        print(ch)
+        break
+# Output: c
+
+
