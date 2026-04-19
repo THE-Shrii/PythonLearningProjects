@@ -354,3 +354,190 @@ for ch in s:
 # Output: c
 
 
+# Q11. Remove duplicates without set
+lst = [1,2,2,3]
+res = []
+
+for i in lst:
+    if i not in res:
+        res.append(i)
+
+print(res)
+# Output: [1,2,3]
+
+
+# Q12. Find intersection of lists
+a = [1,2,3]
+b = [2,3,4]
+res = []
+
+for i in a:
+    if i in b:
+        res.append(i)
+
+print(res)
+# Output: [2,3]
+
+
+# Q13. Find pair with sum
+lst = [2,7,11,15]
+target = 9
+seen = {}
+
+for i in lst:
+    if target - i in seen:
+        print(i, target-i)
+        break
+    seen[i] = True
+# Output: 7 2
+
+
+# Q14. Check palindrome string (loop)
+s = "madam"
+is_pal = True
+
+for i in range(len(s)//2):
+    if s[i] != s[-i-1]:
+        is_pal = False
+        break
+
+print(is_pal)
+# Output: True
+
+
+# Q15. Flatten nested list
+lst = [[1,2],[3,4]]
+flat = []
+
+for sub in lst:
+    for i in sub:
+        flat.append(i)
+
+print(flat)
+# Output: [1,2,3,4]
+
+
+# Q16. Count vowels and consonants
+s = "hello"
+v = c = 0
+
+for ch in s:
+    if ch in "aeiou":
+        v += 1
+    else:
+        c += 1
+
+print(v, c)
+# Output: 2 3
+
+
+# Q17. Longest word in sentence
+s = "I love python programming"
+longest = ""
+
+for word in s.split():
+    if len(word) > len(longest):
+        longest = word
+
+print(longest)
+# Output: programming
+
+
+# Q18. Check prime (optimized)
+num = 29
+is_prime = True
+
+for i in range(2, int(num**0.5)+1):
+    if num % i == 0:
+        is_prime = False
+        break
+
+print(is_prime)
+# Output: True
+
+
+# Q19. Fibonacci nth
+n = 7
+a,b = 0,1
+
+for _ in range(n-1):
+    a,b = b,a+b
+
+print(a)
+# Output: 8
+
+
+# Q20. Spiral sum (simple)
+lst = [1,2,3,4]
+print(sum(lst))
+# Output: 10
+
+
+# Q21. Matrix transpose
+mat = [[1,2],[3,4]]
+res = [[0,0],[0,0]]
+
+for i in range(2):
+    for j in range(2):
+        res[j][i] = mat[i][j]
+
+print(res)
+# Output: [[1,3],[2,4]]
+
+
+# Q22. Find max difference
+lst = [2,3,10,6]
+max_diff = 0
+min_val = lst[0]
+
+for i in lst:
+    if i < min_val:
+        min_val = i
+    elif i - min_val > max_diff:
+        max_diff = i - min_val
+
+print(max_diff)
+# Output: 8
+
+
+# Q23. Group even/odd
+lst = [1,2,3,4]
+even, odd = [], []
+
+for i in lst:
+    if i%2==0:
+        even.append(i)
+    else:
+        odd.append(i)
+
+print(even, odd)
+# Output: [2,4] [1,3]
+
+
+# Q24. Remove consecutive duplicates
+s = "aaabbc"
+res = ""
+
+for ch in s:
+    if not res or res[-1] != ch:
+        res += ch
+
+print(res)
+# Output: abc
+
+
+# Q25. Count subarrays sum = k
+lst = [1,2,3]
+k = 3
+count = 0
+
+for i in range(len(lst)):
+    s = 0
+    for j in range(i,len(lst)):
+        s += lst[j]
+        if s == k:
+            count += 1
+
+print(count)
+# Output: 2
+
