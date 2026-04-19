@@ -541,3 +541,167 @@ for i in range(len(lst)):
 print(count)
 # Output: 2
 
+
+# Q26. Maximum subarray sum (Kadane's Algorithm)
+lst = [-2,1,-3,4,-1,2,1,-5,4]
+max_sum = curr = lst[0]
+
+for i in lst[1:]:
+    curr = max(i, curr + i)
+    max_sum = max(max_sum, curr)
+
+print(max_sum)
+# Explanation:
+# At each step, decide whether to continue subarray or start new
+# Output: 6  (subarray: 4,-1,2,1)
+
+
+# Q27. Find all pairs with given sum
+lst = [1,2,3,4,5]
+target = 6
+
+for i in range(len(lst)):
+    for j in range(i+1, len(lst)):
+        if lst[i] + lst[j] == target:
+            print(lst[i], lst[j])
+# Output:
+# 1 5
+# 2 4
+
+
+# Q28. Longest substring without repeating characters
+s = "abcabcbb"
+seen = set()
+left = 0
+max_len = 0
+
+for right in range(len(s)):
+    while s[right] in seen:
+        seen.remove(s[left])
+        left += 1
+    seen.add(s[right])
+    max_len = max(max_len, right-left+1)
+
+print(max_len)
+# Output: 3
+
+
+# Q29. Check if two lists are rotations
+a = [1,2,3,4]
+b = [3,4,1,2]
+
+is_rotation = False
+
+for i in range(len(a)):
+    if a[i:] + a[:i] == b:
+        is_rotation = True
+        break
+
+print(is_rotation)
+# Output: True
+
+
+# Q30. Find equilibrium index
+lst = [1,3,5,2,2]
+total = sum(lst)
+left_sum = 0
+
+for i in range(len(lst)):
+    total -= lst[i]
+    if left_sum == total:
+        print(i)
+        break
+    left_sum += lst[i]
+# Output: 2
+
+
+# Q31. Count inversions
+lst = [2,4,1,3]
+count = 0
+
+for i in range(len(lst)):
+    for j in range(i+1, len(lst)):
+        if lst[i] > lst[j]:
+            count += 1
+
+print(count)
+# Output: 3
+
+
+# Q32. Merge two sorted lists
+a = [1,3,5]
+b = [2,4,6]
+i=j=0
+res=[]
+
+while i<len(a) and j<len(b):
+    if a[i] < b[j]:
+        res.append(a[i]); i+=1
+    else:
+        res.append(b[j]); j+=1
+
+res.extend(a[i:])
+res.extend(b[j:])
+print(res)
+# Output: [1,2,3,4,5,6]
+
+
+# Q33. Find peak element
+lst = [1,3,20,4,1]
+for i in range(1,len(lst)-1):
+    if lst[i] > lst[i-1] and lst[i] > lst[i+1]:
+        print(lst[i])
+# Output: 20
+
+
+# Q34. Longest increasing subsequence (basic)
+lst = [10,9,2,5,3,7]
+res = [lst[0]]
+
+for i in lst[1:]:
+    if i > res[-1]:
+        res.append(i)
+
+print(res)
+# Output: [10] (basic greedy, not full LIS)
+
+
+# Q35. Matrix spiral print
+mat = [[1,2,3],[4,5,6],[7,8,9]]
+
+while mat:
+    print(mat.pop(0))
+    mat = list(zip(*mat))[::-1]
+# Output:
+# [1,2,3]
+# (6,9)
+# (8,7)
+# (4,)
+# (5,)
+
+
+# Q36. Find majority element
+lst = [3,3,4,2,3,3]
+count = 0
+candidate = None
+
+for num in lst:
+    if count == 0:
+        candidate = num
+    count += (1 if num == candidate else -1)
+
+print(candidate)
+# Output: 3
+
+
+# Q37. Sort 0s and 1s
+lst = [0,1,0,1,1,0]
+zero = 0
+
+for i in range(len(lst)):
+    if lst[i] == 0:
+        lst[i], lst[zero] = lst[zero], lst[i]
+        zero += 1
+
+print(lst)
+# Output: [0,0,0,1,1,1]
