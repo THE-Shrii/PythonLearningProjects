@@ -52,3 +52,39 @@
 # name = "classy chic  "
 # print(name.find("  "))
 
+
+
+# fruits = []
+# f1 = input("Enter a fruit name: ")
+# fruits.append(f1)
+# f2 = input("Enter a fruit name: ")
+# fruits.append(f2)
+# f3 = input("Enter a fruit name: ")
+# fruits.append(f3)
+# f4 = input("Enter a fruit name: ")
+# fruits.append(f4)
+# f5 = input("Enter a fruit name: ")
+# fruits.append(f5)
+# print(fruits)
+
+
+# marks = []
+# f1 = int(input("Enter marks of Maths: "))
+# marks.append(f1)
+# f2 = int(input("Enter marks of Science: "))
+# marks.append(f2)
+# marks.sort()
+# print(marks)
+
+
+# a = (34, "shrii")
+# a[0] = 2 #TypeError: 'tuple' object does not support item assignment
+
+
+# l = (3,2,2,3)
+# print(sum(l)) #10
+# print(l.count(2)) #2
+
+
+
+
