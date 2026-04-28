@@ -86,5 +86,11 @@
 # print(l.count(2)) #2
 
 
+# nums = [1,2,3,4]
+# for num in nums:
+#     if num == 3:
+#        break
+# else:
+#     print("completed")
 
 
